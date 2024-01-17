@@ -1,0 +1,32 @@
+body {
+    font-family: helvetica;
+    padding: 1em;
+    max-width: 45em;
+    margin: auto;
+}
+
+hr {
+    border: none;
+    border-top: solid 1pt black;
+}
+
+li {
+    list-style-type: square;
+    line-height: 1.5em;
+}
+
+p {
+    line-height: 1.2em;
+}
+
+nav span {
+    display: inline-block;
+    min-width: 6em;
+}
+
+blockquote {
+    font-family: times;
+    border-left: solid 2pt black;
+    margin-left: 0;
+    padding-left: 1em;
+}
