@@ -32,7 +32,6 @@ def get_posts() -> list[Post]:
 def generate_index_page(posts: list[Post]) -> str:
     html = generate_header()
     html += f"<h1>{TITLE}</h1>"
-    html += f"<h2>{SUBTITLE}</h2>"
     html += get_index_post()
     html += generate_posts_table(posts)
     return html
