@@ -19,14 +19,22 @@ p {
     line-height: 1.2em;
 }
 
-nav span {
-    display: inline-block;
-    min-width: 6em;
-}
-
 blockquote {
     font-family: times;
     border-left: solid 2pt black;
     margin-left: 0;
     padding-left: 1em;
+}
+
+table {
+    margin: -0.25em;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.25em;
+}
+
+img {
+    max-width: 100%;
 }

@@ -38,5 +38,5 @@ def extract_title(html_text: str) -> str:
     return matches.groups()[0]
 
 def get_html_from_md(md_text: str) -> str:
-    md = markdown.Markdown(extensions=['fenced_code'])
+    md = markdown.Markdown(extensions=['fenced_code', 'tables'])
     return md.convert(md_text)

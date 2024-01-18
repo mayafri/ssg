@@ -45,10 +45,14 @@ def get_index_post() -> str:
         return ""
 
 def generate_posts_table(posts: list[Post]) -> str:
-    html = "<nav>"
+    html = "<table>"
+    html += "<tr><th>Date</th><th>Post</th></tr>"
     for post in posts:
-        html += f"<p><span>{post.date_str}</span><a href='{post.link}'>{post.title}</a></p>"
-    html += "</nav>"
+        html += "<tr>"
+        html += f"<td>{post.date_str}</td>"
+        html += f"<td><a href='{post.link}'>{post.title}</a></td>"
+        html += "</tr>"
+    html += "</table>"
     return html
 
 def generate_post_page(post: Post) -> str:
