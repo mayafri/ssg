@@ -14,7 +14,7 @@ class Post:
 
     def __init__(self, filename: str):
         self.filename = filename
-        self.link = filename + ".html"
+        self.link = filename.removesuffix(".md") + ".html"
         self.md_content = read_file(POSTS_DIRNAME, filename)
         self.html_content = get_html_from_md(self.md_content)
         self.title = extract_title(self.html_content)

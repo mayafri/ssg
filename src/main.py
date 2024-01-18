@@ -1,6 +1,6 @@
 import os
 
-from conf import DATA_DIRNAME, OUTPUT_DIRNAME, POSTS_DIRNAME, SUBTITLE, TITLE
+from conf import DATA_DIRNAME, OUTPUT_DIRNAME, POSTS_DIRNAME, TITLE
 from post import Post
 from utils import copy_dir, create_file, get_html_from_md, read_file, rm_dir
 
@@ -16,6 +16,7 @@ def generate_website():
 
 def get_posts() -> list[Post]:
     filenames = os.listdir(POSTS_DIRNAME)
+    filenames.sort(reverse=True)
     posts = []
     for filename in filenames:
         if filename == "index.md":

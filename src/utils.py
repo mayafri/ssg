@@ -23,7 +23,7 @@ def copy_dir(src_path: str, dst_path: str):
     shutil.copytree(src_path, dst_path)
 
 def extract_date_from_filename(filename: str) -> datetime:
-    matches = re.search(r"^(\d\d\d\d)-(\d\d)-(\d\d)\s", filename)
+    matches = re.search(r"^(\d\d\d\d)-(\d\d)-(\d\d)", filename)
     if not matches:
         raise Exception("Unable to extract YYYY-MM-DD date at the beginning of file name")
     year = int(matches.groups()[0])
