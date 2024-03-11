@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "flatflat"
+name = "ssg"
 version = "0.1.0"
 description = "Static site generator without hierarchy"
 authors = ["Maya Friedrichs <_@maya.sh>"]
