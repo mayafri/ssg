@@ -5,4 +5,5 @@
 3. Edit `TITLE` in /src/conf.py
 4. Install [poetry](https://python-poetry.org/docs/)
 5. `chmod +x ./make`
-6. Run `./make` to generate the website
+6. `poetry install --no-root`
+7. Run `./make` to generate the website
