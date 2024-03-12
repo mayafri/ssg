@@ -1,6 +1,6 @@
 import os
 
-from conf import ALLOW_INDEX, DATA_DIRNAME, OUTPUT_DIRNAME, POSTS_DIRNAME, TITLE
+from conf import ALLOW_INDEX, BASE_URL, DATA_DIRNAME, DESCRIPTION, OUTPUT_DIRNAME, POSTS_DIRNAME, TITLE
 from post import Post
 from utils import copy_dir, create_file, get_html_from_md, read_file, rm_dir
 
@@ -9,6 +9,7 @@ def generate_website():
     copy_dir(DATA_DIRNAME, OUTPUT_DIRNAME)
     posts = get_posts()
     create_file(generate_index_page(posts), OUTPUT_DIRNAME, "index.html")
+    create_file(generate_rss_page(posts), OUTPUT_DIRNAME, "flux.rss")
     for post in posts:
         create_file(generate_post_page(post), OUTPUT_DIRNAME, post.link)
     www_local_path = os.getcwd() + "/" + OUTPUT_DIRNAME + "/index.html"
@@ -76,6 +77,31 @@ def generate_header() -> str:
             <title>""" + TITLE + """</title>
         </head>
         <body>
+    """
+
+def generate_rss_page(posts: list[Post]) -> str:
+    items = []
+    for post in posts:
+        items.append(
+            f"""
+            <item>
+                <title>{post.title}</title>
+                <link>{post.url}</link>
+                <guid isPermaLink="False">>{post.url}</guid>
+                <pubDate>{post.date_rfc822}</pubDate>
+                <description>{post.html_content}</description>
+            </item>
+            """
+        )
+    return f"""<?xml version="1.0"?>
+    <rss version="2.0">
+        <channel>
+            <title>{TITLE}</title>
+            <link>{BASE_URL}</link>
+            <description>{DESCRIPTION}</description>
+            {"".join(items)}
+        </channel>
+    </rss>
     """
 
 generate_website()

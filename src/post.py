@@ -1,5 +1,7 @@
 from datetime import datetime
-from conf import POSTS_DIRNAME
+from email.utils import formatdate
+from urllib.parse import quote
+from conf import BASE_URL, POSTS_DIRNAME
 
 from utils import extract_date_from_filename, extract_title, get_html_from_md, read_file
 
@@ -23,6 +25,14 @@ class Post:
     @property
     def date_str(self) -> str:
         return self.date.isoformat()[:10]
+    
+    @property
+    def date_rfc822(self) -> str:
+        return formatdate(datetime(self.date.year, self.date.month, self.date.day).timestamp(), True)
+    
+    @property
+    def url(self) -> str:
+        return BASE_URL + "/" + quote(self.link)
 
     def __repr__(self) -> str:
         return self.date_str + " - " + self.title

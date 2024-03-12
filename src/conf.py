@@ -1,5 +1,7 @@
 # Website vars
 TITLE = "website title"
+DESCRIPTION = "a blog about plush sharks"
+BASE_URL = "https://example.com"
 
 # Directories
 POSTS_DIRNAME = "posts"
