@@ -1,6 +1,6 @@
 import os
 
-from conf import DATA_DIRNAME, OUTPUT_DIRNAME, POSTS_DIRNAME, TITLE
+from conf import ALLOW_INDEX, DATA_DIRNAME, OUTPUT_DIRNAME, POSTS_DIRNAME, TITLE
 from post import Post
 from utils import copy_dir, create_file, get_html_from_md, read_file, rm_dir
 
@@ -63,13 +63,16 @@ def generate_post_page(post: Post) -> str:
     return html
 
 def generate_header() -> str:
-    return """
+    noindex_tag = '<meta name="robots" content="noindex">' if not ALLOW_INDEX else ''
+
+    return f"""
     <!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <link rel="stylesheet" media="screen" href="screen.css">
+            {noindex_tag}
             <title>""" + TITLE + """</title>
         </head>
         <body>
