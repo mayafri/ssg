@@ -58,9 +58,8 @@ def generate_posts_table(posts: list[Post]) -> str:
 
 def generate_post_page(post: Post) -> str:
     html = generate_header()
-    html += "<nav><a href='index.html'>Retour</a></nav><hr>"
     html += post.html_content
-    html += f"<p>{post.date_str}</p><hr><nav><a href='index.html'>Retour</a></nav>"
+    html += f"<p>{post.date_str}</p><nav><p><a href='index.html'>Retour</a></p></nav>"
     return html
 
 def generate_header() -> str:

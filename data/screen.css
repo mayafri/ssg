@@ -1,13 +1,30 @@
 body {
-    font-family: helvetica;
+    font-family: verdana;
     padding: 1em;
     max-width: 45em;
     margin: auto;
 }
 
+nav {
+    border-top: solid 1pt;
+}
+
 hr {
     border: none;
-    border-top: solid 1pt black;
+    border-bottom: solid 1pt black;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background-color: #222;
+    }
+    hr {
+        border-color: white;
+    }
+    a {
+        color: rgb(195, 195, 255);
+    }
 }
 
 li {
@@ -16,13 +33,12 @@ li {
 }
 
 p {
-    line-height: 1.2em;
+    line-height: 1.33em;
 }
 
 blockquote {
-    font-family: times;
-    border-left: solid 2pt black;
-    margin-left: 0;
+    margin: 0;
+    border-left: solid 2pt;
     padding-left: 1em;
 }
 
@@ -38,3 +54,25 @@ th, td {
 img {
     max-width: 100%;
 }
+
+.pixelart {
+    image-rendering: pixelated;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    border-bottom: solid 1pt;
+    padding-bottom: 1rem;
+}
+
+h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
+h3 {margin-left: 1rem;}
+h4 {margin-left: 2rem;}
+h5 {margin-left: 3rem;}
+h6 {margin-left: 4rem;}
