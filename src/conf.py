@@ -2,6 +2,8 @@
 TITLE = "website title"
 DESCRIPTION = "a blog about plush sharks"
 BASE_URL = "https://example.com"
+AUTHOR = "Author"
+LANG = "en"
 
 # Directories
 POSTS_DIRNAME = "posts"

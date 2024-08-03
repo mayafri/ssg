@@ -27,10 +27,6 @@ class Post:
         return self.date.isoformat()[:10]
     
     @property
-    def date_rfc822(self) -> str:
-        return formatdate(datetime(self.date.year, self.date.month, self.date.day).timestamp(), True)
-    
-    @property
     def url(self) -> str:
         return BASE_URL + "/" + quote(self.link)
 
